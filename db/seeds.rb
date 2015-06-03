@@ -1,6 +1,6 @@
 User.create([
   { first_name: 'Nick', last_name: 'Hong' },
-  { first_name: 'Charlie', last_name: 'Huang' }
+  { first_name: 'Charlie', last_name: 'Fang' }
   { first_name: 'Jeffrey', last_name: 'Pang' }f
 ])
 # This file should contain all the record creation needed to seed the database with its default values.

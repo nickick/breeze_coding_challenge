@@ -11,22 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603223318) do
+ActiveRecord::Schema.define(version: 20150603233540) do
 
   create_table "items", force: :cascade do |t|
-    t.string   "item_type"
-    t.decimal  "amount",     precision: 8, scale: 2
-    t.datetime "date"
-    t.integer  "user_id"
+    t.string   "item_type",                          null: false
+    t.decimal  "amount",     precision: 8, scale: 2, null: false
+    t.datetime "date",                               null: false
+    t.integer  "user_id",                            null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "first_name",               null: false
+    t.string   "last_name",                null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.decimal  "balance",    default: 0.0, null: false
   end
 
 end
