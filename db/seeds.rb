@@ -1,7 +1,7 @@
 User.create([
   { first_name: 'Nick', last_name: 'Hong' },
-  { first_name: 'Charlie', last_name: 'Fang' }
-  { first_name: 'Jeffrey', last_name: 'Pang' }f
+  { first_name: 'Charlie', last_name: 'Fang' },
+  { first_name: 'Jeffrey', last_name: 'Pang' }
 ])
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
