@@ -26,7 +26,7 @@ class BalanceUpdater
     process_late_fee
     process_balance
 
-    if @user.balance > 0
+    if @user.balance > DELINQUENT_THRESHOLD
       @user.delinquent_at = nil
     elsif @user.delinquent_at.nil?
       @user.delinquent_at = Time.now
