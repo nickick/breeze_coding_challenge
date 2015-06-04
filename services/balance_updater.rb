@@ -17,7 +17,7 @@ class BalanceUpdater
 
   def process_late_fee
     unless @user.balance >= DELINQUENT_THRESHOLD
-      fee = Math.floor((Time.now - @user.delinquent_at)/(60*60*24)) * LATE_PENALTY
+      fee = (Time.now - @user.delinquent_at)/(60*60*24).floor * LATE_PENALTY
       @user.balance -= fee
     end
   end
