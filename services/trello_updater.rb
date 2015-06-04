@@ -19,7 +19,7 @@ class TrelloUpdater
 
   def find_or_create_user_card
     card = @@balance_tracker_board.cards.select do |card|
-      card.name == @user.card_name
+      card.name =~ /\[\##{@user.id}\]/
     end.first
 
     if card.nil? && @user.delinquent_at
@@ -33,7 +33,7 @@ class TrelloUpdater
     card = find_or_create_user_card
     return false unless card
 
-    card.desc = @user.card_desc
+    card.name = @user.card_name
     card.save
 
     # assumes balance has been updated already and that delinquent_at
