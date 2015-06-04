@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create item_params.merge user_id: params[:user_id]
+    puts @item
+    BalanceUpdater.new(@item).update_user_balance
 
     respond_to do |format|
       format.json { render 'create.js' }
