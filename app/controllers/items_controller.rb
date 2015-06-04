@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create item_params.merge user_id: params[:user_id]
-    puts @item
     BalanceUpdater.new(@item).update_user_balance
+    TrelloUpdater.new(@item.user).update
 
     respond_to do |format|
       format.json { render 'create.js' }
@@ -14,6 +14,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:item_type, :amount, :date)
+    params.permit(:item_type, :amount, :date)
   end
 end

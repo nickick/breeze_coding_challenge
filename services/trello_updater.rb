@@ -22,7 +22,7 @@ class TrelloUpdater
       card.name == @user.card_name
     end.first
 
-    if card.nil?
+    if card.nil? && @user.delinquent_at
       card = Trello::Card.create(name: @user.card_name, desc: @user.card_desc, list_id: OPEN_LIST_ID)
     end
 
@@ -33,7 +33,8 @@ class TrelloUpdater
     card = find_or_create_user_card
     return false unless card
 
-    card.update_fields({desc: @user.card_desc}).save
+    card.desc = @user.card_desc
+    card.save
 
     # assumes balance has been updated already and that delinquent_at
     # will be deleted for non-delinquent users

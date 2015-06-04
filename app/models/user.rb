@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :items, dependent: :destroy
 
   def card_name
-    "#{user.first_name} #{user.last_name}"
+    "#{first_name} #{last_name}"
   end
 
   def card_desc
