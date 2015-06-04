@@ -1,7 +1,7 @@
 # To use
 ```
-    $ rake db:migrate
-    $ rake db:seed
+    $ bundle install
+    $ rake db:migrate db:seed
     $ rails s
 ```
 ```
